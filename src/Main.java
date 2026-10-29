@@ -7,16 +7,15 @@ public class Main {
     private static final Library library = new Library();
 
     public static void main(String[] args) {
-        FileManager.load(library);
+        FileManager.load(library); // Read Data from txt
 
         System.out.println("\n==============================================");
         System.out.println("        BOOKFLOW - LIBRARY MANAGEMENT");
         System.out.println("   From Shelf to Borrower and Back");
         System.out.println("==============================================");
 
-        boolean running = true;
-        while (running) {
-            showMenu();
+        boolean running = true; 
+        while (running) { showMenu(); // main call function
             int choice = input.number("Enter your choice: ");
 
             switch (choice) {
@@ -32,7 +31,7 @@ public class Main {
                 case 10 -> viewTransactions();
                 case 11 -> FileManager.save(library);
                 case 12 -> {
-                    FileManager.save(library);
+                    FileManager.save(library); // Write Data to txt file
                     running = false;
                     System.out.println("Thank you for using BookFlow!");
                 }
@@ -69,8 +68,8 @@ public class Main {
             return;
         }
 
-        System.out.println(library.addBook(new Book(id, title, author))
-                ? "Book added successfully." : "Book ID already exists.");
+        System.out.println(library.addBook(new Book(id, title, author)) 
+            ? "Book added successfully." : "Book ID already exists.");
     }
 
     private static void removeBook() {
